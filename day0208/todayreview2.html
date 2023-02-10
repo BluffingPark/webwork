@@ -20,6 +20,13 @@
         input{
             width: 100px;
         }
+
+        img{
+            width: 300px;
+            height: 300px;
+            border-radius: 300px;
+            border: 3px solid gray;
+        }
     </style>
 </head>
 <body>
@@ -85,21 +92,21 @@
                 var grade;
                 var car1=document.getElementById("car");
                 //var car2=<img src="../image/mycarimage/Car1.png">;
-                //var picture;
+                var picture;
                                
                 
                                            
                 grade=avg>=90?"A":avg>=80?"B":avg>=70?"C":avg>=60?"D":"F";
 
-                //picture=grade=="A"?`<img src="../image/mycarimage/Car1.png">`:"없음";
+                picture=grade=="A"?`<img src="../image/mycarimage/Car1.png">`:grade=="B"?`<img src="../image/food/11.jpg">`:"없음";
 
-                var picture; //=avg>=90?"document.getElementById("car")":"document.getElementById("food")";                                  
+                /*var picture; //=avg>=90?"document.getElementById("car")":"document.getElementById("food")";                                  
                     if(avg>=90){
                     picture= '<img src="../image/mycarimage/Car1.png">';
                     }
                     else{
                     picture="없음";
-                    }  
+                    }  */
                     
 
                 var s=
