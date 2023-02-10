@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body,body *{
+            font-size: 1.5rem;
+            font-family: 'single day';
+        }
+
+        button{
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            margin-left: 100px;
+            margin-top: 30px;
+        }
+
+       
+    </style>    
+
+</head>
+<body>
+    <div style="margin-left:50px;">
+        이름
+        <input type="text" style="width:100px;" id="n1"></input>
+
+        <br><br>
+        자바
+        <input type="text" style="width:100px;" id="j1"></input>
+
+        <br><br>
+        HTML
+        <input type="text" style="width:100px;" id="h1"></input>
+
+    </div>
+
+    <button type="button" id="result">결과 확인</button>
+
+    <script>
+
+        var n1=document.getElementById("n1");
+        var j1=document.getElementById("j1");
+        var h1=document.getElementById("h1");
+
+        result.onclick=function(){
+            document.getElementById("nr").innerHTML=`이름 : ${n1.value}`;
+            document.getElementById("jr").innerHTML=`자바점수 : ${j1.value}`;
+            document.getElementById("hr").innerHTML=`HTML점수 : ${h1.value}`;
+            document.getElementById("sr").innerHTML=`총점 : ${Number(j1.value)+Number(h1.value)}`;
+            document.getElementById("ar").innerHTML=`평균 : ${[Number(j1.value)+Number(h1.value)]/2}`;
+        }
+    </script>
+
+     
+
+    <div>
+        <h1 style="margin-top: 130px; margin-left: 50px;" id="nr"></h1> 
+        <h1 id="jr" style="margin-left: 50px;"></h1>
+        <h1 id="hr" style="margin-left: 50px;"></h1>
+        <h1 id="sr" style="margin-left: 50px;"></h1>
+        <h1 id="ar" style="margin-left: 50px;"></h1>
+
+    </div>
+
+    <script>
+        var n1=document.getElementById("n1");
+        var j1=document.getElementById("j1");
+        var h1=document.getElementById("h1");
+
+        n1.onfocus=function(){
+        this.style.backgroundColor="lightyellow";
+        }
+
+        n1.onblur=function(){
+        this.style.backgroundColor="white";
+        }        
+            
+        j1.onfocus=function(){
+        this.style.backgroundColor="lightyellow";
+        }
+
+        j1.onblur=function(){
+        this.style.backgroundColor="white";
+        
+            if(isNaN(this.value))
+           {
+            alert("숫자로만 입력해주세요");
+            this.value="";
+            this.focus(); 
+            }
+
+            if(0>(this.value),100<(this.value))
+           {
+            alert("0~100 사이로 입력해주세요");
+            this.value="";
+            this.focus(); 
+            }
+        }
+
+        h1.onfocus=function(){
+        this.style.backgroundColor="lightyellow";
+        }
+
+        h1.onblur=function(){
+        this.style.backgroundColor="white";
+        
+            if(isNaN(this.value))
+           {
+            alert("숫자로만 입력해주세요");
+            this.value="";
+            this.focus(); 
+            }
+
+            if(0>(this.value),100<(this.value))
+           {
+            alert("0~100 사이로 입력해주세요");
+            this.value="";
+            this.focus(); 
+            }
+        }
+
+       
+    </script>
+</body>
+</html>

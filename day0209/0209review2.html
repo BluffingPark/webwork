@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body,body *{
+            font-size: 1.5rem;
+            font-family: 'Jua';
+        }
+
+        th{
+            background-color: rgba(138,43,226,0.4);
+        }
+
+        .photo{
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            border: 3px solid black           
+        }
+    </style>
+
+</head>
+<body>
+    <script>
+        var arrpicture=new Array();
+        arrpicture.push("../image/food/1.jpg");
+        arrpicture.push("../image/food/2.jpg");
+        arrpicture.push("../image/food/3.jpg");
+        arrpicture.push("../image/food/4.jpg");
+        arrpicture.push("../image/food/5.jpg");
+
+        var arrname=["샌드위치","떡꼬치","스튜","리조또","콘치즈"]
+
+        var arrprice=new Array();
+        arrprice[0]=8000;
+        arrprice[1]=5000;
+        arrprice[2]=12000;
+        arrprice[3]=11000;
+        arrprice[4]=9000;
+
+    </script>
+<table border="2" style="border-collapse:collapse; width: 500px;">
+    <caption><b>내일 점심 뭐 먹지?</b></caption>
+    <th>번호</th><th>이름</th><th>사진</th><th>가격</th>
+    
+    <tr>
+        <script>
+            var s="";
+            var total=0;
+            
+                                    
+            /*for(var idx in arrprice){
+                total+=arrprice[idx];
+                s+=`                
+                <tr>
+                    <td align=center>${idx}</td>
+                    <td align=center>${arrname[idx]}</td>
+                    <td align=center><img class="photo" src=${arrpicture[idx]}></td>
+                    <td align=right>${arrprice[idx]}원</td>
+                </tr>
+                `;            
+            }*/
+
+            for(var idx in arrprice){
+                total+=arrprice[idx];
+
+                s+="<tr>";
+                s+="<td align=center>"+(Number(idx)+1)+"</td>";
+                s+="<td>"+arrname[idx]+"</td>";
+                s+="<td align=center>"+`<img src=${arrpicture[idx]} class="photo">`+"</td>";
+                s+="<td align=right>"+arrprice[idx]+"원"+"</td>";
+                s+="</tr>";
+            };
+            
+            document.write(s);
+        </script>
+    </tr>
+</table>
+
+<br>
+
+<script>
+    document.write("<b style='margin-left:150px;'>전부 먹을 시 금액 : "+total+"원</b>");
+    
+</script>
+</body>
+</html>

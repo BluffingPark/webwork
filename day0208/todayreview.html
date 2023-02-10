@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body,body *{
+            font-size: 1.5rem;
+            font-family: 'single day';
+        }
+        b{
+            margin: 30px 30px;
+        }
+        button{
+            margin-left: 100px;
+        }
+        input{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <b>이름 : </b>
+        <input type="text" id="txtirum">
+        <br><br>
+        <b>자바 : </b>
+        <input type="text" id="txtjava">
+        <br><br>
+        <b>HTML : </b>
+        <input type="text" id="txthtml">
+        <br><br>
+        <button type="button" id="btn1">결과 확인</button>
+        <br><br>
+        <h2 id="result"></h2>
+
+        <img src="../image/mycarimage/car1.png" id="car" hidden>
+        <img src="../image/food/5.jpg" id="food" hidden>
+        
+
+        <script>
+            
+
+            document.getElementById("txtjava").onblur=function(){
+                if(isNaN(this.value)){
+                    alert("숫자로만 입력해주세요!")
+                    this.value="";
+                    this.focus();
+                    return;
+                }
+
+                if(!(this.value>=0 && this.value<=100)){
+                    alert("0~100 사이로 입력해주세요!");
+                    this.value="";
+                    this.focus();
+                }
+            }
+
+            document.getElementById("txthtml").onblur=function(){
+                if(isNaN(this.value)){
+                    alert("숫자로만 입력해주세요!")
+                    this.value="";
+                    this.focus();
+                    return;
+                }
+
+                if(!(this.value>=0 && this.value<=100)){
+                    alert("0~100 사이로 입력해주세요!");
+                    this.value="";
+                    this.focus();
+                }
+            }
+
+            document.getElementById("btn1").onclick=function(){
+                var irum=document.getElementById("txtirum").value;
+                var java=Number(document.getElementById("txtjava").value);
+                var html=Number(document.getElementById("txthtml").value);
+                var total=java+html;
+                var avg=total/2;
+                var grade;
+                var picture;
+                               
+                
+                                           
+                grade=avg>=90?"A":avg>=80?"B":avg>=70?"C":avg>=60?"D":"F";
+
+                picture=grade=="A"?"자동차":grade=="B"?"컴퓨터":grade=="C"?"자전거":"없음";
+
+                //var picture   //=avg>=90?"document.getElementById("car")":"document.getElementById("food")";                                  
+                    //if(avg>=90){
+                    //document.getElementById("car");
+                    //}
+                    //else{
+                    //document.getElementById("food");
+                    //}
+
+                var s=
+                `
+                이름 : ${irum}
+                자바 : ${java}
+                html : ${html}
+                총점 : ${total}
+                평균 : ${avg}
+                등급 : ${grade}
+                상품 : ${picture}
+                `;
+
+                var r=document.getElementById("result");
+
+                r.innerText=s;
+
+                
+                }
+        
+        </script>
+    </div>
+    
+</body>
+</html>

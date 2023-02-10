@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex4_stylechange</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body,body *{
+            font-size: 1.5rem;
+            font-family: 'single day';
+        }
+
+        #box{
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 200px;
+            height: 200px;
+            border-width: 10px;
+            border-color: cadetblue;
+            border-style: solid;
+            background-color: chartreuse;
+        }
+
+        .data{
+            position: absolute;
+            left: 100px;
+            top: 350px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>    
+<div class="data">
+    <b>선스타일</b>
+    <select id="selstyle">
+        <option>solid</option>
+        <option>dotted</option>
+        <option>dashed</option>
+        <option>double</option>
+        <option>inset</option>
+        <option>groove</option>
+    </select>
+
+    <br><br>
+
+    <b>선색상</b>
+    <select id="selcolor">
+        <option selected disabled hidden>선색상 선택</option>
+        <option value="red">빨강색</option>
+        <option value="#ff69b4">핑크색</option>
+        <option value="#66cdaa">아쿠아색</option>
+        <option value="#9acd32">연두색</option>
+        <option value="#9499d3">보라색</option>
+    </select>
+
+    <br><br>
+
+    <b>채우기색상</b>
+    <select id="selbcolor">
+        <option selected disabled hidden>채우기색상 선택</option>
+        <option value="pink">연핑크</option>
+        <option value="green">그린색</option>
+        <option value="#8fbc8f">앤틱그린색</option>
+        <option value="beige">베이지색</option>
+        <option value="skyblue">하늘색</option>
+    </select>
+</div>
+
+<script>
+    var box=document.getElementById("box");
+
+    //이벤트 선스타일
+    document.getElementById("selstyle").onchange=function(){
+        document.getElementById("box").style.borderStyle=this.value;
+    }
+
+    //이벤트 선색상
+    document.getElementById("selcolor").onchange=function(e){
+        //document.getElementById("box").style.borderColor=this.value;
+        box.style.borderColor=e.target.value;
+    }
+
+    //이벤트 채우기색상
+    document.getElementById("selbcolor").onchange=function(){
+        document.getElementById("box").style.backgroundColor=this.value;
+    }
+</script>
+</body>
+</html>

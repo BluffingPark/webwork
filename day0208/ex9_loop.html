@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body,body *{
+            font-size: 1.5rem;
+            font-family: 'single day';
+        }
+
+        .mycar{
+            width: 200px;
+            height: 130px;
+        }
+
+        .food{
+            width: 150px;
+            height: 150px;
+            margin-left: 10px;
+            border-radius: 100px;
+            border: 3px solid pink;
+            box-shadow: 5px 3px lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h2>구구단 5단 출력</h2>
+    <script>
+        for(i=1;i<=9;i++){
+            //document.write(`5 X ${i} = ${5*i}<br>`);
+            document.write("5 X "+i+" = "+5*i+"<br>");
+        }
+    </script>
+    <hr>
+    <h2>mycarimage 폴더에서 car1.png 부터 car10.png까지 출력</h2>
+    <script>
+        for(i=1;i<=10;i++){
+            var car=`<img src="../image/mycarimage/car${i}.png" class="mycar">`;
+            document.write(car)
+        }
+        
+    </script>
+    <hr>
+    <h2>food 이미지에서 1.jpg~12.jpg 까지 출력(class="food")로 준 후 style 적용</h2>
+    <script>
+        for(i=1;i<=12;i++){
+            var food=`<img src="../image/food/${i}.jpg" class="food">`;
+            document.write(food)
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0207 homework2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body,body *{
+            font-size: 1.5rem;
+            font-family: 'single day';
+        }
+    </style>
+</head>
+<body>
+    <img src="../image/moviestar/9.jpg" width="200" id="photo">
+    <br>
+
+    <button type="button" onclick="bigger()" id="big">점점 크게</button>
+
+    <script>
+        var p=document.getElementById("photo");
+        
+
+        document.getElementById("big").onclick=function(){
+        var w=p.getAttribute("width");
+        var n=parseInt(w)
+        p.setAttribute("width",n+10);
+     }
+    </script>
+
+<br><br>
+
+<button type="button" onclick="smaller()" id="small">점점 작게</button>
+
+<script>
+     var p=document.getElementById("photo");
+    
+
+    document.getElementById("small").onclick=function(){
+        var w=p.getAttribute("width");
+
+        p.setAttribute("width",w-10);
+ }
+</script>
+
+</body>
+</html>

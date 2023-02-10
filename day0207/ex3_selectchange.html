@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selectchange</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body,body *{
+            font-size: 1.5rem;
+            font-family: 'single day';
+        }
+    </style>
+</head>
+<body>
+    <img src="../image/animal/c1.png" id="animal">
+    <br><br>
+    <select id="sel">
+        <option value="../image/animal/c1.png">첫째고양이</option>
+        <option value="../image/animal/c2.png">둘째고양이</option>
+        <option value="../image/animal/c3.png">셋째고양이</option>
+        <option value="../image/animal/c4.png">넷째고양이</option>
+        <option value="../image/animal/c5.png">다섯째고양이</option>
+        <option value="../image/animal/c6.png">여섯째고양이</option>
+        <option value="../image/animal/c7.png">일곱째고양이</option>
+        <option value="../image/animal/c8.png">여덟째고양이</option>
+    </select>
+
+    <script>
+        document.getElementById("sel").onchange=function(e){
+            //this는 이벤트가 발생한 자기 자신을 나타내는 인스턴스 변수이다
+            //alert(this.value);
+
+            //2번째 방법은 event 를 이용해서 얻는 방법
+            //e.target은 이벤트가 발생한 요소를 의미한다(여기서는 this와 같은 의미)
+            //alert(e.target.value);
+
+            //이미지의 src를 select 에서 얻은 값으로 변경해보자
+            document.getElementById("animal").setAttribute("src",this.value);
+        }
+    </script>
+    <br><br>
+    <b>선종류 변경</b>
+    <select id="selborder">
+        <!--첫줄 고정 제목을 추가-->
+        <option selected disabled hidden>select border</option>
+        <option value="5px inset gray">테두리선 1</option>
+        <option value="10px solid orange">테두리선 2</option>
+        <option value="7px dotted pink">테두리선 3</option>
+        <option value="1px double purple">테두리선 4</option>
+        <option value="5px groove gold">테두리선 5</option>
+    </select>
+
+    <script>
+        document.getElementById("selborder").onchange=function(){
+            //style 값 변경시
+            document.getElementById("animal").style.border=this.value;
+        }
+    </script>
+</body>
+</html>
