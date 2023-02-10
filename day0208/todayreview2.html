@@ -83,38 +83,41 @@
                 var total=java+html;
                 var avg=total/2;
                 var grade;
-                var car=document.getElementById("car");
+                var car1=document.getElementById("car");
+                //var car2=<img src="../image/mycarimage/Car1.png">;
+                //var picture;
                                
                 
                                            
                 grade=avg>=90?"A":avg>=80?"B":avg>=70?"C":avg>=60?"D":"F";
 
-                picture=grade=="A"?`${car}`:"없음";
+                //picture=grade=="A"?`<img src="../image/mycarimage/Car1.png">`:"없음";
 
-                /*var picture;   //=avg>=90?"document.getElementById("car")":"document.getElementById("food")";                                  
+                var picture; //=avg>=90?"document.getElementById("car")":"document.getElementById("food")";                                  
                     if(avg>=90){
-                    document.getElementById("car");
+                    picture= '<img src="../image/mycarimage/Car1.png">';
                     }
                     else{
-                    document.getElementById("food");
-                    }
-                    */
+                    picture="없음";
+                    }  
+                    
 
                 var s=
                 `
-                이름 : ${irum}
-                자바 : ${java}
-                html : ${html}
-                총점 : ${total}
-                평균 : ${avg}
-                등급 : ${grade}
-                상품 : ${picture}
-                `;
+                이름 : ${irum}<br>
+                자바 : ${java}<br>
+                html : ${html}<br>
+                총점 : ${total}<br>
+                평균 : ${avg}<br>
+                등급 : ${grade}<br>
+                상품 : ${picture}<br>
+                `
 
                 var r=document.getElementById("result");
 
-                r.innerText=s;
-
+               
+                r.innerHTML=s;
+                
                 
                 }
         

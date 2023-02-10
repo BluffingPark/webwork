@@ -54,19 +54,19 @@
             var total=0;
             
                                     
-            /*for(var idx in arrprice){
+            for(var idx in arrprice){
                 total+=arrprice[idx];
                 s+=`                
                 <tr>
-                    <td align=center>${idx}</td>
+                    <td align=center>${Number(idx)+1}</td>
                     <td align=center>${arrname[idx]}</td>
                     <td align=center><img class="photo" src=${arrpicture[idx]}></td>
                     <td align=right>${arrprice[idx]}원</td>
                 </tr>
                 `;            
-            }*/
+            }
 
-            for(var idx in arrprice){
+            /*for(var idx in arrprice){
                 total+=arrprice[idx];
 
                 s+="<tr>";
@@ -75,7 +75,7 @@
                 s+="<td align=center>"+`<img src=${arrpicture[idx]} class="photo">`+"</td>";
                 s+="<td align=right>"+arrprice[idx]+"원"+"</td>";
                 s+="</tr>";
-            };
+            };*/
             
             document.write(s);
         </script>
