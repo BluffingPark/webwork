@@ -1,0 +1,57 @@
+git 명령어를 처리하기 위한 git bash 다운 후 설치
+-----------------------------------------------------------------
+** 로컬 저장소 : 파일이나 디렉토리를 저장하는 장소인데 
+                어디에? 내 컴퓨터 안에 저장
+                로컬 디렉토리로 지정된 디렉토리 안에 .git 이 생성되는데
+                그 안에 각종 소스코드나 브랜치 등 정보가 저장이 된다
+                로컬 저장소에 일단 소스코드를 저장하는 명령 : commit
+
+** 원격 저장소 : 서버나 네트워크에 있는 저장소를 의미
+                일반적으로 로컬 저장소에 저장 후 원격 저장소에 저장하는 방식
+                우리는 github 라는 원격 저장소로 저장 할 것임
+                명령어 : push
+
+** 내 컴퓨터의 특정 폴더를 로컬 저장소로 지정하는 방법 
+                : git init
+
+** github의 repositorys 를 연결
+                : git remote add origin 깃허브 주소
+                그런데 기존에 다른 깃주소에 이미 연결되어 있을 경우 오류 발생
+
+** 기존에 다른 깃주소에 이미 연결되어 있을 경우 다른 repositorys에 연결하는 방법
+                : git remote set-url origin 깃허브 주소
+
+** 원격 저장소의 소스코드를 내 컴퓨터에 복사해서 가져오려면
+                : git clone 해당원격저장소주소
+
+** commit
+    git commit -m "메세지"
+
+** push
+    git push origin 브랜치명
+
+** 브랜치 간 이동
+    git checkout 브랜치명
+
+** 새 브랜치 생성
+    git branch 새브랜치명
+
+** 브랜치 조회
+    git branch
+
+** 브랜치 삭제
+    git branch 브랜치명 -d
+    git branch -D 브랜치명
+
+** git log 보는 방법
+    git log
+
+** 원격저장소의 변경된 내용을 로컬저장소로 가져오려면
+    git pull
+    git pull origin 브랜치명
+
+** master 브랜치에 angel 브랜치의 소스코드를 병합하려면
+    git checkout master   // master로 먼저 checkout
+    git merge angel        //merge 브랜치명
+
+
