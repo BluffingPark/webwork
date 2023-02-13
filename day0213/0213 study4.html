@@ -23,20 +23,29 @@
             document.write(`<h2 style=background-color:${arr1[i]}>${arr1[i]}</h2>`);
         }
 
-        //arr2 배열에 있는 이미지를 출력하시오 (width="100"으로)
+        
+          //arr2 배열에 있는 이미지를 출력하시오 (width="100"으로)
 
         for(var myphoto of arr2){
-            document.write(`<img src="${myphoto}" width=100>`);
-        }
+            document.write(`<img src="${myphoto}" width="150"`);
+          }
+
         document.write("<hr>");
+
         for(var idx in arr2){
-            document.write(`<img src="${arr2[idx]}" width=100>`);
-        }
-        
-            
+            document.write(`<img src="${arr2[idx]}" width="150"`);
+          }
 
-
+        //   for(var myphoto of arr2){
+        //     document.write(`<img src="${myphoto}" width=100>`);
+        // }
+        // document.write("<hr>");
+        // for(var idx in arr2){
+        //     document.write(`<img src="${arr2[idx]}" width=100>`);
+        // }
     </script>
-    <h2></h2>
+
+    
+    
 </body>
 </html>
