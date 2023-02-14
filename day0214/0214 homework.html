@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        b{
+            font-size: 1.3rem;
+            font-family: 'Gamja Flower';
+        }
+        
+    </style>
+    <script>
+        window.onload=function(){
+            //입력 후 엔터
+            document.querySelector("#intxt").onkeyup=function(e){
+                if(e.keyCode==13){
+                    let v=this.value;
+                    document.querySelector(".result").innerHTML=v;
+                }
+            }
+
+            //글자 크기
+            let txtsize=document.querySelectorAll(".txtsize");
+            for(let i=0;i<txtsize.length;i++){
+                txtsize[i].onclick=function(){
+                document.querySelector(".result").style.fontSize=this.value;
+                }
+            }
+            
+            //글자색
+            document.querySelector(".tcolor").onchange=function(){
+                document.querySelector(".result").style.color=this.value;
+            }
+
+            //배경색
+            document.querySelector(".bcolor").onchange=function(){
+                document.querySelector(".result").style.backgroundColor=this.value;
+            }
+
+            //글꼴선택
+            let seltxt=document.querySelectorAll(".seltxt");
+            for(let i=0;i<seltxt.length;i++){
+                seltxt[i].onclick=function(){
+                    document.querySelector(".result").style.fontFamily=this.value;
+                }
+            }
+
+            //테두리
+            document.querySelector("#line").onclick=function(){
+                if(this.checked){
+                document.querySelector("#box").style.border="10px groove hotpink";
+                }else{
+                    document.querySelector("#box").style.border="1px solid black";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <b>입력 후 엔터를 누르세요 : </b><input type="text" id="intxt" style="width:300px;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" id="line"><b>테두리</b></label><br>
+    <b>글자크기 : 
+        <label>
+            <input type="radio" name="txtsize" class="txtsize" value="10px">10px
+        </label>
+        <label>
+            <input type="radio" name="txtsize" class="txtsize" value="20px">20px
+        </label>
+        <label>
+            <input type="radio" name="txtsize" class="txtsize" value="30px">30px
+        </label>
+        <label>
+            <input type="radio" name="txtsize" class="txtsize" value="40px">40px
+        </label>
+
+    </b><br>
+    <b>글자색 : 
+        <input type="color" class="tcolor">
+    </b>
+    &nbsp;&nbsp;
+    <b>배경색 :
+        <input type="color" class="bcolor">
+    </b><br>
+    <b>글꼴선택 : 
+        <label>
+            <input type="radio" name="seltxt" class="seltxt" value="Jua">Jua
+        </label>
+        <label>
+            <input type="radio" name="seltxt" class="seltxt" value="Single Day">Single Day
+        </label>        
+        <label>
+            <input type="radio" name="seltxt" class="seltxt" value="Lobster">Lobster
+        </label>
+        <label>
+            <input type="radio" name="seltxt" class="seltxt" value="Gamja Flower">Gamja Flower
+        </label>
+                
+        
+    </b><br>
+
+    <br><br><br>
+
+    <div>
+        <table border="1" id="box" style="border-collapse:collapse; width: 700px; height: 200px;">
+            <th class="result"></th>
+        </table>
+    </div>
+</body>
+</html>

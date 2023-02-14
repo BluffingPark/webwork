@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .food{
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+            border: 3px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- animal의 C2.png 를 img 태그를 이용해서 나타낸 후
+    자바스크립트 이벤트를 이용해서 마우스를 올리면 C4.png로 변경하고
+    마우스를 벗어나면 다시 C2.png로 나타내시오
+    onmouseover, onmouseout 이벤트를 이용
+    setAttribute 함수 이용-->
+    
+    <img src="../image/animal/C2.png" id="C2">
+
+    <script>
+        document.getElementById("C2").onmouseover=function(){
+            document.getElementById("C2").setAttribute("src","../image/animal/C4.png");
+        }
+
+        document.getElementById("C2").onmouseout=function(){
+            document.getElementById("C2").setAttribute("src","../image/animal/C2.png");
+        }
+    </script>
+
+        <br>
+    <!-- food 폴더의 1.jpg 부터 10.jpg 이미지를 자바스크립트 
+        for문을 이용해서 사진을 출력하고 class명을 food로 지정 후 
+        style에서 width, height, border, margin-right 를 설정하시오-->
+
+        <script>
+            for(let i=1;i<=10;i++){
+                let food=`<img src="../image/food/${i}.jpg" class="food">`;
+                document.write(food);
+
+                if(i%5==0){
+                    document.write("<br>");
+                }
+            }
+            
+        </script>
+        <br>
+    <!--구구단 숫자를 입력 후 엔터를 누르면 해당 구구단을 
+        div태그에 출력하시오
+        단 조건1: 입력을 안하고 엔터를 누를 시 "숫자를 입력해주세요"
+           조건2: 숫자가 아닐 경우 "숫자로만 입력해주세요"-->
+        <b style="font-size:1.5rem">구구단 : </b><input type="text" id="gugu">
+        <script>
+            document.getElementById("gugu").onkeyup=function(e){
+                let su=this.value;
+                if(e.keyCode==13){
+                    if(su==""){
+                        alert("숫자를 입력해주세요")
+                        this.focus();
+                        return;
+
+                    }
+                    if(su>9 || su<2){
+                        alert("2~9 사이로 입력해주세요")
+                        this.focus();
+                        this.value="";
+                        return;
+                    }
+                    if(!Number(su)){
+                        alert("숫자만 입력해주세요")
+                        this.focus();
+                        this.value="";
+                        return;
+                    }
+
+                    
+                
+                let s=`[${su}단]<br><br>`
+                    
+                for(let i=1;i<=9;i++){
+                    s+=`${su} x ${i} = ${su*i}<br>
+                    `;                    
+                }   
+                document.getElementById("result").innerHTML=s;      
+                }            
+            }
+            
+        </script>
+        <div id="result"></div>
+        <br>
+        <script>
+            var arr1=["red","green","blue","gray","orange"];
+    
+            var arr2=new Array();
+            arr2.push("../image/food/2.jpg");
+            arr2.push("../image/food/5.jpg");
+            arr2.push("../image/moviestar/5.jpg");
+            arr2.push("../image/animal/C1.png");
+    
+            //arr1 을 h2 태그에 출력하되 배경색도 해당색으로 출력되도록
+            // style을 지정해서 출력하시오
+
+            for(let i=0;i<arr1.length;i++){
+                document.write(`<h2 style="background-color:${arr1[i]}">${arr1[i]}</h2>`);
+            }
+            
+            //arr2 배열에 있는 이미지를 출력하시오 (width="100"으로)
+
+            for(let idx in arr2){
+                document.write(`<img src="${arr2[idx]}" width="100">`);
+            }
+
+
+            
+        </script>
+        
+</body>
+</html>

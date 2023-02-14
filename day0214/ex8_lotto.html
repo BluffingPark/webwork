@@ -13,11 +13,12 @@
         }
 
         body{
-            background-color: #add8e6
+            background-color: #add8e6;
         }
         
         div.title{
             font-size: 30px;
+            margin: 30px 100px;  /*top,left*/
         }
         div.title .num{
             color: blue;
@@ -28,21 +29,83 @@
         }
 
         div.box{
-            display: flex;            
-        }
-
-        div.box{
+            display: flex;
             width: 630px;
-            height: 12px;
+            height: 120px;
             margin-left: 20px;
             margin-top: 20px;
             border-radius: 100px;
-            background-color: white;
+            background-color: white; 
+            justify-content: space-evenly;/*flex 일 경우 수평방향 가운데*/
+            align-items: center;/*flex 일 경우 수직방향 가운데*/
+            /*flex-start,center,space-between,space-evenly,space-around,*/
+        }
+        div.box div.lotto{
+            font-size: 45px;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            background-color: hotpink;
+            border-radius: 100px;
+            }
+        
+        #btnlotto{
+            width: 200px;
+            height: 60px;
+            margin: 30px 200px;
+            font-size: 23px;
+            cursor: pointer;
+        }
+        #btnlotto:hover{
+            background-color: black;
+            color: white;
+            box-shadow: 5px 5px 5px gray;
         }
     </style>
+    <script>
+        window.onload=function(){
+            //현재 날짜 구하기
+            let today=new Date();
+            let year=today.getFullYear();
+            let month=today.getMonth()+1;
+            let day=today.getDate();
+
+            document.querySelector("b.day").innerHTML=` ${year}-${month}-${day}`;
+
+            //숫자 출력되는 곳의 요소값을 배열형태로 얻어보자
+            var lotto=document.querySelectorAll("div.box>div.lotto");
+            lotto[1].style.backgroundColor="#afeeee";
+            lotto[3].style.backgroundColor="#cced34";
+
+            lotto[2].style.color="#3f54dd";
+            lotto[4].style.color="#afeeee";
+            
+            //버튼 이벤트
+            document.getElementById("btnlotto").onclick=function(){
+                let nums=new Array(6);
+                //1~45 사이의 난수값을 6개 구한다
+                for(let i=0;i<nums.length;i++){
+                    nums[i]=parseInt(Math.random()*45)+1;//1~45
+                    //중복체크해서 같을 경우 다시 구한다
+                    for(let j=0;j<i;j++){
+                        if(nums[i]==nums[j]){
+                        i--;
+                        break;
+                        }
+                    }
+                }
+
+                //div.lotto 에 위에서 구한 숫자를 넣어준다
+                for(let idx in lotto){
+                    lotto[idx].innerHTML=nums[idx];
+                }
+            }
+        }
+    </script>
 </head>
 <body>
-    <div class="title"><b class="num">1025</b>회<b class="day"> 0000-00-00</b></div>
+    <div class="title"><b class="num">1025</b>회<b class="day">0000-00-00</b></div>
     <div class="box">
         <div class="lotto">1</div>
         <div class="lotto">1</div>
