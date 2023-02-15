@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body,body *{            
+            font-family: 'Jua';
+        }
+    </style>
+
+    <script>
+        let r;
+        window.onload=function(){
+            r=document.getElementById("result");
+            
+            init_setting();
+
+            document.getElementById("push").onclick=function(){
+                    let hobby=document.getElementsByName("hobby");
+                    let result="";
+                    for(let h of hobby){
+                        if(h.checked){
+                            result+=h.value+"&nbsp;";
+                        }
+                    }
+                    if(result==''){
+                            r.innerText="취미 없음";
+                    }else{
+                            r.innerHTML=`제 취미는 ${result} 입니다`;
+                    }
+                
+
+                    let tcolor=document.getElementById("tcolor").value;
+                    r.style.color=tcolor;
+
+                    let bcolor=document.getElementById("bcolor").value;
+                    r.style.backgroundColor=bcolor;
+
+                    let selfont=document.getElementById("selfont").value;
+                    r.style.fontFamily=selfont;
+
+                    localStorage.fontcolor=tcolor;
+                    localStorage.backgroundColor=bcolor;
+                    localStorage.fontname=selfont;
+
+                    }
+            }
+        
+
+        function init_setting(){
+            let t=localStorage.getItem("fontcolor");
+            let b=localStorage.getItem("backgroundColor");
+            let f=localStorage.getItem("fontname");
+
+            document.getElementById("tcolor").value=t;
+            document.getElementById("bcolor").value=b;
+            document.getElementById("selfont").value=f;
+
+            r.style.color=t;
+            r.style.backgroundColor=b;
+            r.style.fontFamily=f;
+        }
+
+
+    </script>
+
+</head>
+<body>
+    <h2 class="alert alert-success">폰트 환경설정 스토리지에 저장하기</h2>
+    <img src="../image/food/5.jpg" style="width:200px" class="rounded-circle">
+    <img src="../image/food/9.jpg" style="width:200px" class="img-thumbnail">
+    
+    <table class="table table-striped" border="1" style="border-collapse:collapse; width:300px;">
+        <caption align="top">폰트 설정</caption>
+        <tr>
+            <th width=100px style="background-color:pink" >글자색</th>
+            <td align="center"><input type="color" id="tcolor"></td>
+        </tr>
+        <tr>
+            <th width=100px style="background-color:pink">배경색</th>
+            <td align="center"><input type="color" id="bcolor"></td>
+        </tr>
+        <tr>
+            <th width=100px style="background-color:pink">글꼴</th>
+            <td>
+                <select class="form-select" id="selfont">
+                    <option>Jua</option>
+                    <option>Gamja Flower</option>
+                    <option>Lobster</option>
+                    <option>Single Day</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th width=100px style="background-color:pink">취미</th>
+            <td>
+                <label style="width:80px"><input type="checkbox" value="컴퓨터게임" name="hobby">컴퓨터게임</label>
+                <label style="width:80px"><input type="checkbox" value="여행" name="hobby">여행</label>
+                <br>
+                <label style="width:80px"><input type="checkbox" value="보드게임" name="hobby">보드게임</label>
+                <label style="width:80px"><input type="checkbox" value="볼링" name="hobby">볼링</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button type="button" class="btn btn-primary btn-lg" id="push">적용하기</button>
+            </td>            
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <div id="result">결과 나오는 곳</div>
+            </td>
+        </tr>
+        
+            
+                
+            
+        
+    </table>
+</body>
+</html>
