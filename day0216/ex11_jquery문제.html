@@ -29,8 +29,9 @@
             $("ul li").css({"color":"#490","font-family":"Single Day"});
 
             //6. ul 의 li에 마우스를 올리면 글자색이 빨강으로, 벗어나면 다시 원래색으로 변경
+
             $("ul li").mouseover(function(){
-                $(this).css("color","red");
+                $(this).css("color","red").css("width","130px");
             });
 
             $("ul li").mouseout(function(){
