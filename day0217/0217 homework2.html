@@ -24,11 +24,7 @@
                 let b=$(this).attr("b");
                             
 
-                let s=`
-                <img src="${imgSrc}" width="270" height="340">
-                <br>
-                <h2>R:${r},G:${g},B:${b}</h2>
-                `;
+                let s=``;
 
                 let bcolor=$(this).css("color");
                 $("h1").css("color",bcolor);
@@ -56,7 +52,7 @@
     h1의 배경색에도 적용시켜주세요
   -->  
     <h1>td에 마우스를 올리면 색이 바뀌게 하세요</h1>
-    <table class="table table-bordered" style="width: 320px; border: 2px solid black;">
+    <table class="table table-bordered" style="width: 320px;">
     <script>
         for(let row=1;row<=5;row++){
             document.write("<tr style='text-align:center; font-size:30px'>");
@@ -74,7 +70,7 @@
                     
 
                     //난수 중복 처리
-                    var nums=new Array(1);
+                    var nums=new Array(25);
                     for(let i=0;i<nums.length;i++){
                     //i번지 배열에 1~100 사이의 난수값을 저장한다
                     nums[i]=parseInt(Math.random()*100)+1;
@@ -91,7 +87,7 @@
                     
                     document.write("</td>");
                 }
-                document.write("<tr>");
+                document.write("</tr>");
         }
      </script>
 </table>

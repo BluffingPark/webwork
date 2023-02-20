@@ -18,7 +18,8 @@
         $(function(){
             $("td").mouseover(function(){
                 let color=$(this).css("color");
-                $("h1").css("color",color);
+                $("h1").css("background-color",color);
+                $("h1").text(color);
             });
 
 
@@ -42,30 +43,35 @@
   <h1>td에 마우스를 올리면 해당 글자색이 출력되게 하세요</h1>
   <table class="table table-bordered" style="width:400px; border: 3px solid gray;">
     <script>
-    for(let row=1;row<=5;row++){
-        document.write("<tr>");
-            for(let col=1;col<=5;col++){
-                let r=parseInt(Math.random()*256)+1;
-                let g=parseInt(Math.random()*256)+1;
-                let b=parseInt(Math.random()*256)+1;
-
-                document.write(`<td style='color:rgb(${r},${g},${b}); text-align:center; font-size:30px;'>`)
-                
-                let su=new Array(1);
-                for(let i=0;i<su.length;i++){
-                    su[i]=parseInt(Math.random()*100)+1;
+                let nums=new Array(25);
+                for(let i=0;i<nums.length;i++){
+                    nums[i]=parseInt(Math.random()*100)+1;
                     for(let j=0;j<i;j++){
-                        if(su[i]==su[j]){
+                        if(nums[i]==nums[j]){
                             i--;
                             break;
                         }
                     }
-                    document.write(`${su[i]}`);
                 }
-                document.write("</td>")    
-            }
+
+                let idx=0;
+
+            for(let row=1;row<=5;row++){
+                document.write("<tr>");
+                for(let col=1;col<=5;col++){
+                let r=parseInt(Math.random()*256)+1;
+                let g=parseInt(Math.random()*256)+1;
+                let b=parseInt(Math.random()*256)+1;
+
+                document.write(`<td style='color:rgb(${r},${g},${b}); text-align:center; font-size:30px;'>`+nums[idx++]+"</td>")
+                     
+                }
+                    
+                }
+                  
+            
             document.write("</tr>")
-    }
+    
     </script>
   </table>
 </body>

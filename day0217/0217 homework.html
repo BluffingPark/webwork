@@ -72,19 +72,41 @@
         //마우스 위치 위의 사진을 우측 사진에 나오게 하고
         //아래의 h4, 위의 h3 값을 얻어서 우측태그에 넣기
 
-            $("div.one h2").mouseover(function(){
+            // $("div.one h2").mouseover(function(){
+
+            //     let pic=$(this).parent().prev().attr("src");
+            //     $("div.two img").attr("src",pic);
+            
+            //     let color=$(this).next().attr("color");
+            //     $(this).css("background-color",color);
+
+            //     let text1=$(this).parent().prev().prev().text();
+            //     $("div.two h3").text(text1);
+
+            //     let text2=$(this).siblings().text();
+            //     $("div.two h2").text(text2);
+            // });
+
+            $("div.one h2").hover(function(){
+                let color=$(this).next().attr("color");
+                $(this).css("background-color",color);
 
                 let pic=$(this).parent().prev().attr("src");
                 $("div.two img").attr("src",pic);
-            
-                let color=$(this).next().attr("color");
-                $("div.one h2").css("background-color",color);
 
-                let text1=$(this).parent().prev().prev().text();
+                let text1=$(this).parent().siblings("h3").text();
                 $("div.two h3").text(text1);
 
                 let text2=$(this).siblings().text();
                 $("div.two h2").text(text2);
+            },function(){
+                $(this).css("background-color","#fff");
+
+                $("div.two img").attr("src","");
+
+                $("div.two h3").text("h3의 글자(사진위)를 여기에");
+
+                $("div.two h2").text("마우스 아래의 글자를 여기에");
             });
                 
 
