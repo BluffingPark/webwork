@@ -78,15 +78,27 @@
     }];
 
     $.each(todayhome,function(idx,item){
-        $("#show").append(`
-        <figure>
-                <img src="${item.img}">
-                <figcaption>
-                    <h4>${item.title}</h4>
+        // $("#show").append(`
+        // <figure>
+        //         <img src="${item.img}">
+        //         <figcaption>
+        //             <h4>${item.title}</h4>
                     
-                </figcaption>
-        </figure>
-        `);
+        //         </figcaption>
+        // </figure>
+        // `);
+            
+        let s="<figure>";
+            s+="<img src="+item.img+">";
+            s+="<figcaption>";
+            s+="<h4>"+item.title+"</h4>";
+            s+="</figcaption>";
+            s+="</figure>";
+
+            $("#show").append(s);
+        
+
+        
     });
 </script>
 
