@@ -52,7 +52,7 @@
 
 <body>
     <!-- The Modal -->
-    <div class="modal" id="myModal">
+    <div class="modal" id="foodModal">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -64,7 +64,7 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <img src="" alt="사진 위치">
+                    <img src="" alt="사진 위치" class="img-thumbnail" style="max-width:100%">
                     <h4 class="modal_menu"><b>메뉴명</b></h4>
                     <h4 class="modal_price">가격</h4>
                 </div>
@@ -77,10 +77,10 @@
             </div>
         </div>
     </div>
-    <h4></h4>
+    <h4 style="text-align:center; color:darkslateblue; background-color: beige; font-weight: bold; font-size: 2em; width: 500px;">오늘의 메뉴</h4>
     <table class="table table-striped" style="width:500px;">
         <thead>
-            <tr bgcolor="#ccc">
+            <tr bgcolor="#559d">
                 <th width="80">번호</th>
                 <th width="100">메뉴명</th>
                 <th>사진</th>
@@ -105,7 +105,7 @@
                     <tr>
                         <td>${idx+1}</td>
                         <td>${item.foodname}</td>
-                        <td><img src=${item.foodsrc} data-bs-toggle="modal" data-bs-target="#myModal" class=foodimg></td>
+                        <td><img src=${item.foodsrc} data-bs-toggle="modal" data-bs-target="#foodModal" class=foodimg></td>
                         <td>${item.foodprice}원</td>
                     </tr>
                 
