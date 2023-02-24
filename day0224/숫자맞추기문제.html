@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+
+
+    <style>
+        body,body *{            
+            font-family: 'single day';
+        }
+
+        button{
+            position: absolute;
+            left: 100px;
+            top: 300px;
+        }
+
+        #numin{
+            position: absolute;
+            left: 100px;
+            top:50px;
+            width: 200px;
+        }
+
+        div#result{
+            border: 1px solid black;
+            width: 250px;
+            height: 50px;
+            position: absolute;
+            left: 100px;
+            top: 150px;
+        }
+
+        #image1{
+            position: absolute;
+            left: 500px;
+            top: 150px;
+        }
+
+        #image2{
+            position: absolute;
+            left: 550px;
+            top: 150px;
+        }
+
+        #image3{
+            position: absolute;
+            left: 530px;
+            top: 150px;
+        }
+
+        div#resultnum{
+
+            visibility: hidden;
+        }
+
+        
+    </style>
+
+    <script>
+        let rnd;
+        $(function(){
+            init();
+            
+            $(".startbtn").click(function(){
+                               
+                init();
+                // rnd=parseInt(Math.random()*101);
+                // $("div#resultnum").html(rnd);
+
+                // $("#result").html("");
+                // $("#numin").html("");
+
+            });
+
+            $("#numin").keyup(function(e){
+            //엔터를 누를 시 적용
+            if(e.keyCode==13){
+                let inputval=$(this).val();
+                if(inputval<rnd){
+                    $("#result").html(`${inputval}보다 큽니다`);
+                    let n=parseInt(inputval/10);
+                    $("#image1").attr("src",`../image/num/${n}.gif`);
+                    let n2=inputval%10^(1-1)%10;
+                    $("#image2").attr("src",`../image/num/${n2}.gif`);
+                }
+                if(inputval>rnd){
+                    $("#result").html(`${inputval}보다 작습니다`);
+                    let n=parseInt(inputval/10);
+                    $("#image1").attr("src",`../image/num/${n}.gif`);
+                    let n2=inputval%10^(1-1)%10;
+                    $("#image2").attr("src",`../image/num/${n2}.gif`);
+                }
+
+                if(inputval==rnd){
+                    $("#result").html(`${rnd} 정답입니다!!!`);
+                    $("#image1").remove();
+                    $("#image2").remove();
+                    $("#image3").attr("src",`../image/jquery_image/03.png`)
+                    }
+                
+                $(this).val(""); 
+                }
+            });
+        });
+
+        function init(){
+            //0-100 사이 난수 발생
+            rnd=parseInt(Math.random()*101);
+            $("div#resultnum").html(rnd);
+            $("div#result").html("1~100 사이 새로운 난수 발생");
+            $("#image3").attr("src","");
+        }
+    </script>
+</head>
+<body>
+    <button type="button" class="startbtn btn btn-success">다시 시작</button>
+
+    <input type="text" id="numin" class="form-control" auotofocus maxlength="3" placeholder="숫자입력 후 엔터">
+
+    <div id="result"></div>
+
+    <div class="imageposition"><img src="" id="image1"></div>
+    <div class="imageposition"><img src="" id="image2"></div>
+    <div class="imageposition"><img src="" id="image3"></div>
+
+    <div id="resultnum"></div>
+</body>
+</html>
