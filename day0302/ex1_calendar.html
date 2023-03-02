@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+
+
+    <style>
+        body,body *{            
+            font-family: 'single day';
+        }
+
+        #title{
+            font-size: 30px;
+            background-color: bisque;
+            color: coral;
+            width: 400px;
+        }
+    </style>
+
+    <script>
+    $(function(){
+
+    });
+
+   
+    </script>
+
+</head>
+<body>
+    <div id="title">JavaScript 달력</div>
+    <select name="selyear" id="selyear" style="width: 100px; text-align: center;">
+        <script>
+            for(let i=1950;i<=2050;i++)
+            document.write(`<option>${i}</<option>`);
+        </script>        
+    </select>년&nbsp;&nbsp;&nbsp;
+    
+    <select name="selmonth" id="selmonth" style="width: 100px; text-align: center;">
+        <script>
+            for(let i=1;i<=12;i++)
+            document.write(`<option>${i}</<option>`);
+        </script>    
+    </select>월
+    <table class="table table-bordered" style="width: 400px;">
+        <th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
+        <script>
+            let date=new Date();
+            
+            
+         </script>
+    </table>
+</body>
+</html>
